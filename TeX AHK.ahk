@@ -174,7 +174,7 @@ E=mc{^}2
 )
 
 
-:r0:newtonmass::
+:r0:gravit::
 (
 F=G\frac{{}m_1m_2{}}{{}r{^}2{}}
 )
