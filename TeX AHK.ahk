@@ -201,6 +201,15 @@ G=6.674\times10{^}{{}-11{}}\frac{{}m{^}3{}}{{}kg\cdot s{^}2{}}
 \sigma=5.670374419\times10{^}{{}-8{}}\frac{{}W{}}{{}m{^}2\cdot K{^}4{}}
 )
 
+:r0:svt::
+(
+\begin{{}equation{}} \label{{}{}}
+
+s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
+
+\end{{}equation{}}
+
+)
 
 :r0*:makefig::
 (
@@ -230,6 +239,21 @@ G=6.674\times10{^}{{}-11{}}\frac{{}m{^}3{}}{{}kg\cdot s{^}2{}}
 \begin{{}math{}}
 
 \end{{}math{}}{Up}
+)
+
+:r0:reldopplerfull::
+(
+\omega'=\frac{{}1{}}{{}\sqrt{{}1-\frac{{}v{^}2{}}{{}c{^}2{}}{}}{}}\cdot \omega \cdot (1-\frac{{}v{}}{{}c{}}\cos{{}\phi{}})
+)
+
+:r0:reldoppler::
+(
+\omega'=\gamma\omega(1-\beta\cos{{}\phi{}})
+)
+
+:r0:limes::
+(
+\lim_{{}x\to0{}}
 )
 
 
