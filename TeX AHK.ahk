@@ -14,11 +14,9 @@ Numpad1::Send,
 
 Numpad2::Send,
 (
-
 \begin{{}math{}}
 
 \end{{}math{}}{Up}
-
 )
 
 
@@ -256,6 +254,10 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 \lim_{{}x\to0{}}
 )
 
+:r0:vsp::
+(
+\vspace{{}2 mm{}}
+)
 
 ::HEADER::
 (
@@ -277,4 +279,7 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 \tikzexternalize[prefix=tikz/]
 
 \newcommand{\R}{\mathbb{R}}
+
+\setlength{\parindent}{0pt}
+
 )
