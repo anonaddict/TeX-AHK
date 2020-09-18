@@ -27,6 +27,11 @@ Numpad4::Send,
 )
 
 
+Numpad5::Send,
+(
+\si[per-mode=symbol]{{}{}}{Left}
+)
+
 Numpad6::Send,
 (
 \
@@ -38,6 +43,10 @@ Numpad7::Send,
 {{}{}}{Left}
 )
 
+Numpad8::Send,
+(
+\times10{^}{{}{}}{Left}
+)
 
 Numpad9::Send,
 (
@@ -70,19 +79,21 @@ Numpad9::Send,
 )
 
 
-:r0:*::
+:r0O:*10::
 (
-\cdot 
+\times10{^}{{}{}}{Left}
 )
 
 
-:r0:lorentzfact::
+:r0:lorentzgamma::
 (
-\begin{{}equation{}} \label{{}{}}{Enter}
 \gamma=\frac{{}1{}}{{}\sqrt{{}1-\frac{{}v{^}2{}}{{}c{^}2{}}{}}{}}{Enter}
-\end{{}equation{}}
 )
 
+:r0:lorentzbeta::
+(
+\beta=\sqrt{{}1-\frac{{}1{}}{{}\gamma{^}2{}}{}}
+)
 
 :r0:betavc::
 (
@@ -109,12 +120,11 @@ Dm{(}f{)}\forall x\in\R
 
 
 
-:r0:blankeq::
+:r0O:eq::
 (
-\begin{{}equation{}} \label{{}{}}{Enter}
-{Enter}
-\end{{}equation{}}
-{Up}
+\begin{{}equation{}} \label{{}{}}
+
+\end{{}equation{}}{Up}
 )
 
 
@@ -130,31 +140,31 @@ Dm{(}f{)}\forall x\in\R
 )
 
 
-:r0*?:dx::
+:r0*:dx::
 (
 \mathrm{{}d{}}x
 )
 
 
-:r0?*:dy::
+:r0*:dy::
 (
 \mathrm{{}d{}}y
 )
 
 
-:r0?*:dz::
+:r0*:dz::
 (
 \mathrm{{}d{}}z
 )
 
 
-:r0?:dt::
+:r0*:dt::
 (
 \mathrm{{}d{}}t
 )
 
 
-:r0*?:uline::
+:r0*:ul::
 (
 \underline{{}\underline{{}{}}{}}{Left}{Left}
 )
@@ -168,7 +178,7 @@ E=mc{^}2
 
 :r0:csol::
 (
-299792458\frac{{}m{}}{{}s{^}2{}}
+299792458\si{{}m.s{^}{{}-1{}}{}}
 )
 
 
@@ -179,34 +189,25 @@ F=G\frac{{}m_1m_2{}}{{}r{^}2{}}
 
 
 
-:r0:planckj::
+:r0:pconst::
 (
-h=6.62607015\times10{^}{{}-34{}}J\cdot s
+h=6.62607015\times10{^}{{}-34{}}\si{{}J.s{}}
 )
 
-:r0:planckev::
-(
-h=4.135667696\times10{^}{{}-15{}}eV\cdot s
-)
 
 :r0:gconst::
 (
-G=6.674\times10{^}{{}-11{}}\frac{{}m{^}3{}}{{}kg\cdot s{^}2{}}
+G=6.674\times10{^}{{}-11{}}\si{{}m{^}3.kg{^}{{}-1{}}.s{^}{{}-2{}}{}}
 )
 
-:r0:stefanboltzmann::
+:r0:sbconst::
 (
-\sigma=5.670374419\times10{^}{{}-8{}}\frac{{}W{}}{{}m{^}2\cdot K{^}4{}}
+\sigma=5.670374419\times10{^}{{}-8{}}\si{{}W.m{^}{{}-2{}}.K{^}{{}-4{}}{}}
 )
 
 :r0:svt::
 (
-\begin{{}equation{}} \label{{}{}}
-
 s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
-
-\end{{}equation{}}
-
 )
 
 :r0*:makefig::
@@ -221,9 +222,13 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 
 :r0:fma::
 (
-\begin{{}equation{}} \label{{}{}}{Enter}
-\overrightarrow{{}F{}}=m \cdot \overrightarrow{{}a{}}
-\end{{}equation{}}
+\vec{{}F{}}=m \cdot \vec{{}a{}}
+)
+
+
+::wfs::
+(
+W=\vec{F}s
 )
 
 :r0:angvel::
@@ -232,7 +237,7 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 )
 
 
-:r0:blankmath::
+:r0O:mat::
 (
 \begin{{}math{}}
 
@@ -259,11 +264,16 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 \vspace{{}2 mm{}}
 )
 
-::HEADER::
+::jtoev::
 (
-\documentclass[12pt,a4paper]{report}
+1\si{J}==6.24\times10^{18} \electronvolt
+)
+
+::head::
+(
+\documentclass[12pt,a4paper]{article}
 \title{Calculus $\beta$}
-\author{Rasmus}
+\author{Rasmus Crolly}
 \date{\today}
 
 \usepackage[utf8]{inputenc}
@@ -282,4 +292,21 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 
 \setlength{\parindent}{0pt}
 
+\begin{document}
+\maketitle
+
+
+\end{document}
 )
+
+
+
+
+
+;O: Omit the ending character of auto-replace hotstrings when the replacement is produced. This is useful when you want a hotstring to be kept unambiguous by still requiring an ending character, but don't actually want the ending character to be shown on the screen. For example, if :o:ar::aristocrat is a hotstring, typing "ar" followed by the spacebar will produce "aristocrat" with no trailing space, which allows you to make the word plural or possessive without having to press Backspace. Use O0 (the letter O followed by a zero) to turn this option back off
+;R: Send the replacement text raw; that is, without translating {Enter} to Enter, ^c to Control+C, etc. This option is put into effect automatically for hotstrings that have a continuation section. Use R0 to turn this option back off.
+;* (asterisk): An ending character (e.g. Space, ., or Enter) is not required to trigger the hotstring.
+;? (question mark): The hotstring will be triggered even when it is inside another word; that is, when the character typed immediately before it is alphanumeric. For example, if :?:al::airline is a hotstring, typing "practical " would produce "practicairline ". Use ?0 to turn this option back off.
+
+
+
