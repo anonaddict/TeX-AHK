@@ -3,6 +3,9 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SetTitleMatchMode, 2 ; searches for any instance of the specified string since many windows get named stuff like "Untitled - Notepad" which would require you to hardcode every document name.
+SetNumLockState, AlwaysOn
+
+
 #ifWinActive TeX
 
 Numpad1::Send,
@@ -21,7 +24,7 @@ Numpad2::Send,
 
 
 
-Numpad4::Send,
+Numpad6::Send,
 (
 \frac{{}{}}{{}{}}{Left}{Left}{Left}
 )
@@ -32,13 +35,13 @@ Numpad5::Send,
 \si[per-mode=symbol]{{}{}}{Left}
 )
 
-Numpad6::Send,
+Numpad7::Send,
 (
 \
 )
 
 
-Numpad7::Send,
+Numpad4::Send,
 (
 {{}{}}{Left}
 )
@@ -220,6 +223,47 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 \end{{}figure{}}
 )
 
+::ga::
+(
+\vec{g}=
+\begin{pmatrix}
+0\\
+-9.8
+\end{pmatrix}\si{\meter\per\square\second}
+)
+
+::partint::
+(
+\int{f\cdot g'}=f\cdot g - \int{f'\cdot g}
+)
+
+::vec2::
+(
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+)
+
+::vec3::
+(
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+)
+
+::vec4::
+(
+\begin{pmatrix}
+x\\
+y\\
+z\\
+t
+\end{pmatrix}
+)
+
 :r0:fma::
 (
 \vec{{}F{}}=m \cdot \vec{{}a{}}
@@ -269,7 +313,7 @@ W=\vec{F}s
 1\si{J}==6.24\times10^{18} \electronvolt
 )
 
-::head::
+::header::
 (
 \documentclass[12pt,a4paper]{article}
 \title{Calculus $\beta$}
