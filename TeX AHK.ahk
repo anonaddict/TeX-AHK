@@ -6,7 +6,7 @@ SetTitleMatchMode, 2 ; searches for any instance of the specified string since m
 SetNumLockState, AlwaysOn
 
 
-#ifWinActive TeX
+#ifWinActive LaTeX
 
 Numpad1::Send,
 (
@@ -106,6 +106,11 @@ Numpad9::Send,
 ::tligevægt::
 (
 T_ligevægt=279\si{\kelvin}\sqrt{\frac{\sqrt{1-A}}{r}}
+)
+
+::vundvigelse::
+(
+v_{esc}=\sqrt{\frac{2GM}{r}}
 )
 
 
