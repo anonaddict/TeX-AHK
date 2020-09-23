@@ -103,6 +103,11 @@ Numpad9::Send,
 \frac{{}v{}}{{}c{}}{}}
 )
 
+::tligevægt::
+(
+T_ligevægt=279\si{\kelvin}\sqrt{\frac{\sqrt{1-A}}{r}}
+)
+
 
 :r0:vmen::
 (
@@ -118,7 +123,7 @@ Dm{(}f{)}\forall x\in\R
 
 :r0O:vec::
 (
-\overrightarrow{{}{}}{Left}
+\vec{{}{}}{Left}
 )
 
 
@@ -223,6 +228,35 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 \end{{}figure{}}
 )
 
+::makeplot::
+(
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $x$,
+    ylabel = {$f(x)$},
+]
+%Below the red parabola is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=red,
+]
+{x^2 - 2*x - 1};
+\addlegendentry{$x^2 - 2x - 1$}
+%Here the blue parabloa is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=blue,
+    ]
+    {x^2 + 2*x + 1};
+\addlegendentry{$x^2 + 2x + 1$}
+
+\end{axis}
+\end{tikzpicture}
+)
+
 ::ga::
 (
 \vec{g}=
@@ -313,6 +347,12 @@ W=\vec{F}s
 1\si{J}==6.24\times10^{18} \electronvolt
 )
 
+::carttopolar::
+(
+\hat{r}=\cos{\phi}\hat{x}+\sin{\phi}\hat{y}, \hat{r}=-\sin{\phi}\hat{x}+\cos{\phi}\hat{y}
+)
+
+
 ::header::
 (
 \documentclass[12pt,a4paper]{article}
@@ -327,6 +367,7 @@ W=\vec{F}s
 \usepackage{amssymb}
 \usepackage{natbib}
 \usepackage{siunitx}
+\usepackage[cm]{fullpage}
 
 \pgfplotsset{compat=1.16}
 \usetikzlibrary{external}
@@ -352,5 +393,8 @@ W=\vec{F}s
 ;* (asterisk): An ending character (e.g. Space, ., or Enter) is not required to trigger the hotstring.
 ;? (question mark): The hotstring will be triggered even when it is inside another word; that is, when the character typed immediately before it is alphanumeric. For example, if :?:al::airline is a hotstring, typing "practical " would produce "practicairline ". Use ?0 to turn this option back off.
 
-
+;ClipSaved := ClipboardAll   ; Save the entire clipboard to a variable of your choice.
+; ... here make temporary use of the clipboard, such as for pasting Unicode text via Transform Unicode ...
+;Clipboard := ClipSaved   ; Restore the original clipboard. Note the use of Clipboard (not ClipboardAll).
+;ClipSaved := ""   ; Free the memory in case the clipboard was very large.
 
