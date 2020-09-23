@@ -81,12 +81,19 @@ Numpad9::Send,
 \neq
 )
 
-
-:r0O:*10::
+:r0O:10#::
 (
 \times10{^}{{}{}}{Left}
 )
 
+::align#::
+(
+\begin{align*}
+x&=y           &  w &=z              &  a&=b+c\\
+2x&=-y         &  3w&=\frac{1}{2}z   &  a&=b\\
+-4 + 5x&=2+y   &  w+2&=-1+w          &  ab&=cb
+\end{align*}
+)
 
 :r0:lorentzgamma::
 (
@@ -133,13 +140,19 @@ Dm{(}f{)}\forall x\in\R
 
 
 
-:r0O:eq::
+:r0O:eq#::
 (
 \begin{{}equation{}} \label{{}{}}
 
 \end{{}equation{}}{Up}
 )
 
+:r0O:math#::
+(
+\begin{{}math{}}
+
+\end{{}math{}}{Up}
+)
 
 :r0*?:radtodeg::
 (
@@ -177,7 +190,7 @@ Dm{(}f{)}\forall x\in\R
 )
 
 
-:r0*:ul::
+:r0:ul::
 (
 \underline{{}\underline{{}{}}{}}{Left}{Left}
 )
@@ -223,7 +236,7 @@ G=6.674\times10{^}{{}-11{}}\si{{}m{^}3.kg{^}{{}-1{}}.s{^}{{}-2{}}{}}
 s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 )
 
-:r0*:makefig::
+:r0*:fig#::
 (
 \begin{{}figure{}}{[}htbp{]}
 \centering
@@ -233,7 +246,7 @@ s=v_0t+\frac{{}1{}}{{}2{}}a \cdot t{^}2
 \end{{}figure{}}
 )
 
-::makeplot::
+::plot#::
 (
 \begin{tikzpicture}
 \begin{axis}[
@@ -320,13 +333,6 @@ W=\vec{F}s
 )
 
 
-:r0O:mat::
-(
-\begin{{}math{}}
-
-\end{{}math{}}{Up}
-)
-
 :r0:reldopplerfull::
 (
 \omega'=\frac{{}1{}}{{}\sqrt{{}1-\frac{{}v{^}2{}}{{}c{^}2{}}{}}{}}\cdot \omega \cdot (1-\frac{{}v{}}{{}c{}}\cos{{}\phi{}})
@@ -342,9 +348,14 @@ W=\vec{F}s
 \lim_{{}x\to0{}}
 )
 
-:r0:vsp::
+:r0:break#::
 (
 \vspace{{}2 mm{}}
+)
+
+::ijk::
+(
+\hat{i}\frac{\partial}{\partial x}+\hat{j}\frac{\partial}{\partial y}+\hat{k}\frac{\partial}{\partial z}
 )
 
 ::jtoev::
@@ -358,7 +369,7 @@ W=\vec{F}s
 )
 
 
-::header::
+::header#::
 (
 \documentclass[12pt,a4paper]{article}
 \title{Calculus $\beta$}
@@ -388,7 +399,6 @@ W=\vec{F}s
 
 \end{document}
 )
-
 
 
 
