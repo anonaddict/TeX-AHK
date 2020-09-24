@@ -138,7 +138,22 @@ Dm{(}f{)}\forall x\in\R
 \vec{{}{}}{Left}
 )
 
+::(::
+(
+\left(
+)
 
+::)::
+(
+\right)
+)
+
+:r0O:align#::
+(
+\begin{{}align{}} \label{{}{}}
+
+\end{{}align{}}{Up}
+)
 
 :r0O:eq#::
 (
@@ -351,6 +366,16 @@ W=\vec{F}s
 :r0:break#::
 (
 \vspace{{}2 mm{}}
+)
+
+::flux#::
+(
+\Phi_F=\frac{L_s}{2\pi r^2}
+)
+
+::lum#::
+(
+L=4\pi R^2 \sigma{SB}T^4
 )
 
 ::ijk::
