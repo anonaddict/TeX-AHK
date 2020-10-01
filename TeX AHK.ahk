@@ -40,7 +40,10 @@ Numpad7::Send,
 \
 )
 
-
+Numpad3::Send,
+(
+$${Left}
+)
 Numpad4::Send,
 (
 {{}{}}{Left}
@@ -375,7 +378,7 @@ W=\vec{F}s
 
 ::lum#::
 (
-L=4\pi R^2 \sigma{SB}T^4
+L=4\pi R^2 \sigma_{SB}T^4
 )
 
 ::ijk::
