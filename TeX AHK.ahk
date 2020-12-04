@@ -413,6 +413,7 @@ L=4\pi R^2 \sigma_{SB}T^4
 \usepackage{siunitx}
 \usepackage[cm]{fullpage}
 
+
 \pgfplotsset{compat=1.16}
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/]
@@ -420,6 +421,17 @@ L=4\pi R^2 \sigma_{SB}T^4
 \newcommand{\R}{\mathbb{R}}
 
 \setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\urlstyle{same}
+
 
 \begin{document}
 \maketitle
