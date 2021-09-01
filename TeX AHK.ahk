@@ -6,7 +6,7 @@ SetTitleMatchMode, 2 ; searches for any instance of the specified string since m
 SetNumLockState, AlwaysOn
 
 
-#ifWinActive LaTeX
+#ifWinActive Notepad
 
 Numpad1::Send,
 (
@@ -124,13 +124,13 @@ v_{esc}=\sqrt{\frac{2GM}{r}}
 )
 
 
-:r0:vmen::
+:r0:vm#::
 (
 Vm{(}f{)}=\left{(}0,\infty\right{]}
 )
 
 
-:r0:dmen::
+:r0:dm#::
 (
 Dm{(}f{)}\forall x\in\R
 )
@@ -141,15 +141,15 @@ Dm{(}f{)}\forall x\in\R
 \vec{{}{}}{Left}
 )
 
-::(::
-(
-\left(
-)
+;::(::
+;(
+;\left(
+;)
 
-::)::
-(
-\right)
-)
+;::)::
+;(
+;\right)
+;)
 
 :r0O:align#::
 (
@@ -208,7 +208,7 @@ Dm{(}f{)}\forall x\in\R
 )
 
 
-:r0:ul::
+:r0:ul#::
 (
 \underline{{}\underline{{}{}}{}}{Left}{Left}
 )
@@ -226,7 +226,7 @@ E=mc{^}2
 )
 
 
-:r0:gravit::
+:r0:gravity#::
 (
 F=G\frac{{}m_1m_2{}}{{}r{^}2{}}
 )
@@ -339,6 +339,10 @@ t
 \vec{{}F{}}=m \cdot \vec{{}a{}}
 )
 
+::freefall#::
+(
+y=y_0+v{0y}t+\frac{1}{2}a_yt^2
+)
 
 ::wfs::
 (
@@ -350,6 +354,15 @@ W=\vec{F}s
 \omega=2\pi \cdot f
 )
 
+::xprod::
+(
+\overrightarrow{a}\times\overrightarrow{b}=\begin{pmatrix}\begin{vmatrix}a_2 & b_2\\a_3 & b_3\end{vmatrix}\\-\begin{vmatrix}a_1&b_1 \\a_3& b_3\end{vmatrix}\\\begin{vmatrix}a_1 & b_1\\a_2 & b_2\end{vmatrix}\end{pmatrix}=\begin{pmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{pmatrix}
+)
+
+::scalar#::
+(
+\overrightarrow{a}\times\overrightarrow{b}=\begin{pmatrix}\begin{vmatrix}a_2 & b_2\\a_3 & b_3\end{vmatrix}\\-\begin{vmatrix}a_1&b_1 \\a_3& b_3\end{vmatrix}\\\begin{vmatrix}a_1 & b_1\\a_2 & b_2\end{vmatrix}\end{pmatrix}=\begin{pmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{pmatrix}
+)
 
 :r0:reldopplerfull::
 (
