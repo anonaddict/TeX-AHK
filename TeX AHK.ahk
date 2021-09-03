@@ -6,7 +6,11 @@ SetTitleMatchMode, 2 ; searches for any instance of the specified string since m
 SetNumLockState, AlwaysOn
 
 
-#ifWinActive Notepad
+#ifWinNotActive Jupyter
+
+~^s::
+reload
+return
 
 Numpad1::Send,
 (
@@ -183,6 +187,16 @@ Dm{(}f{)}\forall x\in\R
 1\si{{}\degree{}} =\frac{{}\pi{}}{{}180\si{{}\degree{}}{}}
 )
 
+:r0*?:c2k::
+(
+0\si[per-mode=symbol]{degreeCelcius} = 273.15\si[per-mode=symbol]{\kelvin}
+)
+
+:r0*?:k2c::
+(
+0\si[per-mode=symbol]{\kelvin}=-273.15\si[per-mode=symbol]{\degreeCelcius}
+)
+
 
 :r0*:dx::
 (
@@ -213,6 +227,14 @@ Dm{(}f{)}\forall x\in\R
 \underline{{}\underline{{}{}}{}}{Left}{Left}
 )
 
+::constaccel::
+(
+Constant x-acceleration only:
+v_x = v_{0x} + a{x}t
+x = x_0 + v_{0x}t + \frac{1}{2}a_xt^2
+v_x^2 = v_{0x}^2a_x(x-x_0)
+x-x_0 = \frac{1}{2}(v_{0x} + v_x)t
+)
 
 :r0:emc2::
 (
@@ -437,22 +459,27 @@ L=4\pi R^2 \sigma_{SB}T^4
 
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-}
-
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
+}				
 \urlstyle{same}
-
-
+	
+	
 \begin{document}
 \maketitle
 
-
+\begin{abstract}
+Your abstract.
+\end{abstract}
+	
+\section{Young and Freedman x.xx}
+	
+\subsection{1}
+	
 \end{document}
 )
-
 
 
 
