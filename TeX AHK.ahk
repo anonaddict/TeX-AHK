@@ -228,6 +228,11 @@ Dm{(}f{)}\forall x\in\R
 1 rad =\frac{{}180\si{{}\degree{}}{}}{{}\pi{}}
 )
 
+:*:idiot#::
+(
+1=\cos{\alpha}^2+\sin{\alpha}^2
+)
+
 
 :*:intvedsub::
 (
