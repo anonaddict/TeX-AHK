@@ -54,7 +54,6 @@ Numpad2::Send,
 
 
 
-
 :r0*?:=>::
 (
 \Rightarrow
@@ -276,6 +275,13 @@ Dm{(}f{)}\forall x\in\R
 )
 
 
+:*:code#::
+(
+\begin{verbatim}
+
+\end{verbatim}
+)
+
 :r0:ul#::
 (
 \underline{{}\underline{{}{}}{}}{Left}{Left}
@@ -489,7 +495,7 @@ L=4\pi R^2 \sigma_{SB}T^4
 :R*O:header#::
 (
 \documentclass[12pt,a4paper]{article}
-\title{Calculus $\beta$}
+\title{Calculus $\beta$ or Mechanics and Thermodynamics}
 \author{Rasmus Crolly}
 \date{\today}
 
@@ -509,6 +515,7 @@ sorting=ynt
 
 \usepackage{siunitx}
 \usepackage[cm]{fullpage}
+\usepackage{listings}
 
 
 \pgfplotsset{compat=1.16}
@@ -539,6 +546,9 @@ Your abstract.
 \section{Young and Freedman x.xx}
 	
 \subsection{1}
+
+\begin{lstlisting}[language=Python]
+\end{lstlisting}
 
 \printbibliography[
 heading=bibintoc,
