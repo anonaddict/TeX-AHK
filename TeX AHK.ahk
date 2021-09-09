@@ -12,23 +12,25 @@ SetNumLockState, AlwaysOn
 reload
 return
 
-Numpad1::Send,
+Numpad8::Send,
 (
 \begin{{}equation{}} \label{{}{}}
 
 \end{{}equation{}}{Up}
 )
 
-Numpad2::Send,
+Numpad9::Send,
 (
 \begin{{}math{}}
 
 \end{{}math{}}{Up}
 )
 
-
-
 Numpad6::Send,
+(
+\int_{{}{}}{^}{{}{}}{Left 4}
+)
+Numpad4::Send,
 (
 \frac{{}{}}{{}{}}{Left}{Left}{Left}
 )
@@ -39,29 +41,17 @@ Numpad5::Send,
 \si[per-mode=symbol]{{}{}}{Left}
 )
 
-Numpad7::Send,
-(
-\
-)
 
-Numpad3::Send,
-(
-$${Left}
-)
-Numpad4::Send,
+Numpad7::Send,
 (
 {{}{}}{Left}
 )
 
-Numpad8::Send,
+Numpad2::Send,
 (
 \times10{^}{{}{}}{Left}
 )
 
-Numpad9::Send,
-(
-\mathrm{{}d{}}
-)
 
 
 
@@ -88,12 +78,12 @@ Numpad9::Send,
 \neq
 )
 
-:r0O:10#::
+:r0O*:10#::
 (
 \times10{^}{{}{}}{Left}
 )
 
-::align#::
+:*:align2#::
 (
 \begin{align*}
 x&=y           &  w &=z              &  a&=b+c\\
@@ -128,13 +118,13 @@ v_{esc}=\sqrt{\frac{2GM}{r}}
 )
 
 
-:r0:vm#::
+:r0*:vm#::
 (
 Vm{(}f{)}=\left{(}0,\infty\right{]}
 )
 
 
-:r0:dm#::
+:r0*:dm#::
 (
 Dm{(}f{)}\forall x\in\R
 )
@@ -155,14 +145,14 @@ Dm{(}f{)}\forall x\in\R
 ;\right)
 ;)
 
-:r0O:align#::
+:r0O*:align#::
 (
 \begin{{}align{}} \label{{}{}}
 
 \end{{}align{}}{Up}
 )
 
-:r0O:eq#::
+:r0O*:eq#::
 (
 \begin{{}equation{}} \label{{}{}}
 
@@ -176,9 +166,73 @@ Dm{(}f{)}\forall x\in\R
 \end{{}math{}}{Up}
 )
 
+:r0*?:kæderegl#::
+(
+(f\circ g)'=g'f'\circ g
+)
+
+:r0*?:freebody#::
+(
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{arrows,calc}
+
+\tikzset{
+  >=stealth', % Change default arrow tip
+  grid/.style={step=1cm,gray!30,very thin},
+  axis/.style={thick,<->},
+  vect/.style={ultra thick,->},
+  vnode/.style={midway,font=\scriptsize},
+  proj/.style={dashed,color=gray!50,->},
+  poly/.style={fill=blue!30,opacity=0.3}
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \coordinate (o)  at (0,0);   % origin
+  \coordinate (g1) at (-5,-5); % grid bottom left
+  \coordinate (g2) at (5,5);   % grid upper right
+  % ---------------------------------------------
+  \coordinate (V1) at (3,0.7);
+  \coordinate (V2) at (-1.6,-3.7);
+  \coordinate (Vr) at ($(V1) + (V2)$);
+
+  % Parallelogram projection lines and polygon.
+  \draw[proj] (V1) -- +(V2);
+  \draw[proj] (V2) -- +(V1);
+  \fill[poly] (o) -- (V1) -- (Vr) -- (V2) -- (o);
+
+  % Grid rendering (bottom left) -- (upper right).
+  \draw[grid] (g1) grid (g2);
+  % Perpendicular X and Y axis.
+  \draw[axis] (g1 |- o) -- (g2 |- o) node[anchor=east,xshift=15] {x};
+  \draw[axis] (g1 -| o) -- (g2 -| o) node[anchor=north,yshift=15] {y};
+
+  % Vector angles and lines
+  \draw[color=blue,->] let \p{V} = (V1) in
+    (0.75,0) arc (0:{atan(\y{V} / \x{V})}:0.75);
+  \draw[color=blue,vect] (o) -- (V1) node [yshift=6, vnode] {$V_1$};
+
+  \draw[color=blue,->] let \p{V} = (V2) in
+    (0.5,0) arc (0:{atan(\y{V} / \x{V}) + 180}:0.5);
+  \draw[color=blue,vect] (o) -- (V2) node [xshift=-7,vnode] {$V_2$};
+
+  \draw[color=red,->] let \p{R} = (Vr) in
+    (1,0) arc (0:{atan(\y{R} / \x{R}) + 360}:1);
+  \draw[color=red, vect] (o) -- (Vr) node [xshift=8, vnode] {$V_R$};
+\end{tikzpicture}
+\end{document}
+)
+
 :r0*?:radtodeg::
 (
 1 rad =\frac{{}180\si{{}\degree{}}{}}{{}\pi{}}
+)
+
+
+:*:intvedsub::
+(
+\int(f'\circ g)g'=f\circ g
 )
 
 
@@ -432,7 +486,7 @@ L=4\pi R^2 \sigma_{SB}T^4
 )
 
 
-::header#::
+:R*O:header#::
 (
 \documentclass[12pt,a4paper]{article}
 \title{Calculus $\beta$}
@@ -442,9 +496,17 @@ L=4\pi R^2 \sigma_{SB}T^4
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{pgfplots}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{natbib}
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{sources.bib}
+
 \usepackage{siunitx}
 \usepackage[cm]{fullpage}
 
@@ -477,7 +539,11 @@ Your abstract.
 \section{Young and Freedman x.xx}
 	
 \subsection{1}
-	
+
+\printbibliography[
+heading=bibintoc,
+title={References}
+]
 \end{document}
 )
 
